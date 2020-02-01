@@ -14,7 +14,21 @@
 		6FBDF91823E5A01400D4FF08 /* Carthage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6FBDF91623E5A01400D4FF08 /* Carthage.xcdatamodeld */; };
 		6FBDF91A23E5A01500D4FF08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FBDF91923E5A01500D4FF08 /* Assets.xcassets */; };
 		6FBDF91D23E5A01500D4FF08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FBDF91B23E5A01500D4FF08 /* LaunchScreen.storyboard */; };
+		6FC82AC623E5A3E3003D7E38 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FC82AC523E5A3E3003D7E38 /* Alamofire.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6FC82AC823E5A3E4003D7E38 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		6FBDF90A23E5A01400D4FF08 /* Carthage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carthage.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -26,6 +40,7 @@
 		6FBDF91923E5A01500D4FF08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6FBDF91C23E5A01500D4FF08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6FBDF91E23E5A01500D4FF08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6FC82AC523E5A3E3003D7E38 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FC82AC623E5A3E3003D7E38 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +60,7 @@
 			children = (
 				6FBDF90C23E5A01400D4FF08 /* Carthage */,
 				6FBDF90B23E5A01400D4FF08 /* Products */,
+				6FC82AC423E5A3E3003D7E38 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +87,14 @@
 			path = Carthage;
 			sourceTree = "<group>";
 		};
+		6FC82AC423E5A3E3003D7E38 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6FC82AC523E5A3E3003D7E38 /* Alamofire.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -80,6 +105,8 @@
 				6FBDF90623E5A01400D4FF08 /* Sources */,
 				6FBDF90723E5A01400D4FF08 /* Frameworks */,
 				6FBDF90823E5A01400D4FF08 /* Resources */,
+				6FC82AC823E5A3E4003D7E38 /* Embed Frameworks */,
+				6FC82ACA23E5A50D003D7E38 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -135,6 +162,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6FC82ACA23E5A50D003D7E38 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6FBDF90623E5A01400D4FF08 /* Sources */ = {
@@ -290,6 +338,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y3J9DR9455;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Carthage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -308,6 +360,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y3J9DR9455;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Carthage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
